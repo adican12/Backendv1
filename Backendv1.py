@@ -15,23 +15,24 @@ app = Flask(__name__)
 #app.config['SECRET_KEY'] = 'catwifi'
 
 #Configure db
-db = yaml.load(open('C:\\Users\\yarde\\PycharmProjects\\Backendv1\\db.yaml'),Loader=yaml.FullLoader)
-app.config['MYSQL_HOST']=db['mysql_host']
-app.config['MYSQL_USER']=db['mysql_user']
-app.config['MYSQL_PASSWORD']=db['mysql_password']
-app.config['MYSQL_DB']=db['mysql_db']
-mysql = MySQL(app)
-
+# db = yaml.load(open('C:\\Users\\yarde\\PycharmProjects\\Backendv1\\db.yaml'),Loader=yaml.FullLoader)
+# app.config['MYSQL_HOST']=db['mysql_host']
+# app.config['MYSQL_USER']=db['mysql_user']
+# app.config['MYSQL_PASSWORD']=db['mysql_password']
+# app.config['MYSQL_DB']=db['mysql_db']
+# mysql = MySQL(app)
+#
 
 
 @app.route('/')
 def home():
-    #conn = db_connect.connect()  # connect to database
-    cur = mysql.connection.cursor()
-    #cur.execute('INSERT INTO user( name , age ) VALUES (%s,%s)',('yarden','26'))
-    #mysql.connection.commit()
-    user_agent = request.headers.get('User-Agent')
-    return '<p>Your browser is %s</p>' % user_agent
+    # #conn = db_connect.connect()  # connect to database
+    # cur = mysql.connection.cursor()
+    # #cur.execute('INSERT INTO user( name , age ) VALUES (%s,%s)',('yarden','26'))
+    # #mysql.connection.commit()
+    # user_agent = request.headers.get('User-Agent')
+    # return '<p>Your browser is %s</p>' % user_agent
+    return render_template('welcome.html')
 
 
 
